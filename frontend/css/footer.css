@@ -1,0 +1,64 @@
+footer {
+    display: grid;
+    grid-template-columns: auto min-content;
+
+    position: absolute;
+    left: 0;
+    top: calc(100vh - var(--footer-bar-height));
+
+    height: var(--footer-bar-height);
+    width: 100vw;
+
+    background-color: rgb(47, 47, 47);
+}
+footer > div#zoom-controls {
+    display: flex;
+    height: var(--footer-bar-height);
+
+    margin-right: 20px;
+}
+
+footer > div#zoom-controls > button {
+    display: inline-block;
+    margin: 0; padding: 0;
+
+    width: 35px; height: 35px;
+    background-color: transparent !important;
+    border: none;
+    border-radius: 4px;
+
+    margin-top:auto; margin-bottom: auto;
+
+    cursor: pointer;
+}
+footer > div#zoom-controls > button#zoom-in {
+    background: url('../images/zoom-in.svg') no-repeat;
+    background-position: center;
+    background-size: 24px 24px;
+}
+footer > div#zoom-controls > button#zoom-out {
+    background: url('../images/zoom-out.svg') no-repeat;
+    background-position: center;
+    background-size: 24px 24px;
+}
+footer > div#zoom-controls > button:hover {
+    background-color: #555555 !important;
+}
+
+footer > div#zoom-controls > input {
+    display: inline-block;
+    margin: 0; padding: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+
+    width: 50px;
+    outline:none;
+
+    background: none;
+    border: none;
+
+    margin-left: 10px;
+
+    font-family: var(--def-font-family);
+    color: #e0e0e0;
+}

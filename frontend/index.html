@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area moment of inertia calculator</title>
+
+    <link rel="stylesheet" href="css/root.css">
+    <link rel="stylesheet" href="css/titlebar.css">
+    <link rel="stylesheet" href="css/options.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/main-content.css">
+    <link rel="stylesheet" href="css/tools.css">
+    <link rel="stylesheet" href="css/canvas.css">
+
+</head>
+<body>
+    
+    <div id="header-holder">
+        <button id="options-nav-opener"></button>
+        <header>Area moment of inertia calculator</header>
+
+        <div id="window-options">
+            <button id="reload"></button>
+            <button id="minimize"></button>
+            <button id="windowed" data-maximized="false"></button>
+            <button id="close"></button>
+        </div>
+    </div>
+
+    <main>
+        <div id="tools" ondragstart="return false;" ondrop="return false;">
+            <div id="tool-btn-list" data-zoomable="true">
+                <div class="tool-btn" id="content-tools-btn" aria-selected="true">
+                    <img src="images/tools-icon.svg">
+                    <p>Tools</p>
+                </div>
+                <div class="tool-btn" id="command-btn" aria-selected="false">
+                    <img src="images/command-icon.svg">
+                    <p>Commands</p>
+                </div>
+                <div class="tool-btn" id="object-data-btn" aria-selected="false">
+                    <img src="images/object-data-icon.svg">
+                    <p>Object Data</p>
+                </div>
+            </div>
+
+            <div id="content-tools-panel" aria-expanded="true" data-zoomable="true">
+                <section id="edit-tools">
+                    <h1> Edit </h1>
+                    <div class="tool-list">
+                        <div class="tool" id="select-tool">
+                            <img src="tool-icons/select-tool.png">
+                            <p> Select </p>
+                        </div>
+
+                        <div class="tool" id="delete-tool">
+                            <img src="tool-icons/delete-tool.png">
+                            <p> Delete </p>
+                        </div>
+
+                        <div class="tool" id="show-hide-tool">
+                            <img src="tool-icons/show-hide-tool.png">
+                            <p> Show/Hide </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="basic-tools">
+                    <h1> Basic </h1>
+                    <div class="tool-list">
+                        <div class="tool" id="point-tool">
+                            <img src="tool-icons/point-tool.png">
+                            <p> Point </p>
+                        </div>
+
+                        <div class="tool" id="line-tool">
+                            <img src="tool-icons/line-tool.png">
+                            <p> Line </p>
+                        </div>
+
+                        <div class="tool" id="quadratic-tool">
+                            <img src="tool-icons/quadratic-tool.png">
+                            <p> Quadratic </p>
+                        </div>
+
+                        <div class="tool" id="cubic-tool">
+                            <img src="tool-icons/cubic-tool.png">
+                            <p> Cubic </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="shape-tools">
+                    <h1> Shapes </h1>
+                    <div class="tool-list">
+                        <div class="tool" id="triangle-tool">
+                            <img src="tool-icons/triangle-tool.png">
+                            <p> Triangle </p>
+                        </div>
+
+                        <div class="tool" id="rectangle-tool">
+                            <img src="tool-icons/rectangle-tool.png">
+                            <p> Rectangle </p>
+                        </div>
+
+                        <div class="tool" id="round-rect-tool">
+                            <img src="tool-icons/round-rect-tool.png">
+                            <p> Squircle </p>
+                        </div>
+
+                        <div class="tool" id="quadrilateral-tool">
+                            <img src="tool-icons/quadrilateral-tool.png">
+                            <p> Quadrilateral </p>
+                        </div>
+
+                        <div class="tool" id="polygon-tool">
+                            <img src="tool-icons/polygon-tool.png">
+                            <p> Polygon </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="conic-tools">
+                    <h1> Conics and Circles </h1>
+                    <div class="tool-list">
+                        <div class="tool" id="circle-tool">
+                            <img src="tool-icons/circle-tool.png">
+                            <p> Circle </p>
+                        </div>
+
+                        <div class="tool" id="semicircle-tool">
+                            <img src="tool-icons/semicircle-tool.png">
+                            <p> Semi-circle </p>
+                        </div>
+
+                        <div class="tool" id="circle-arc-tool">
+                            <img src="tool-icons/circle-arc-tool.png">
+                            <p> Arc </p>
+                        </div>
+
+                        <div class="tool" id="large-circle-arc-tool">
+                            <img src="tool-icons/large-arc-tool.png">
+                            <p> Large arc </p>
+                        </div>
+
+                        <div class="tool" id="ellipse-tool">
+                            <img src="tool-icons/ellipse-tool.png">
+                            <p> Ellipse </p>
+                        </div>
+
+                        <div class="tool" id="sector-tool">
+                            <img src="tool-icons/sector-tool.png">
+                            <p> Sector </p>
+                        </div>
+
+                        <div class="tool" id="large-sector-tool">
+                            <img src="tool-icons/large-sector-tool.png">
+                            <p> Large sector </p>
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+            <div id="command-panel" aria-expanded="false"></div>
+            <div id="object-data-panel" aria-expanded="false"></div>
+            
+            <div id="panel-resizer">
+                <div class="placeholder"></div>
+            </div>
+        </div>
+
+        <svg id="canvas" xmlns="http://www.w3.org/2000/svg">
+
+        </svg>
+    </main>
+
+    <div id="options-list" aria-expanded="false">
+        <div class="option" id="save-btn">
+            <img src="images/save.svg" id="save-img">
+            <p>Save</p>
+        </div>
+        <div class="option" id="save-image-btn">
+            <img src="images/save-image.svg" id="save-image-img">
+            <p>Save image</p>
+        </div>
+        <hr>
+        <div class="option" id="documentation-btn">
+            <img src="images/documentation.svg" alt="" id="documentation-img">
+            <p>Documentation</p>
+        </div>
+        <div class="option" id="about-btn">
+            <img src="images/about.svg" alt="" id="about-img">
+            <p>About</p>
+        </div>
+    </div>
+
+    <footer>
+        <div id="other"></div>
+        <div id="zoom-controls">
+            <button id="zoom-in"></button>
+            <button id="zoom-out"></button>
+            <input type="text" id="current-zoom" value="100%">
+        </div>
+    </footer>
+    
+    <script src="scripts/window-handler.js"></script>
+    <script src="scripts/options.js"></script>
+    <script src="scripts/zoom-handler.js"></script>
+    <script src="scripts/panel.js"></script>
+    
+    <script type="module" src="scripts/canvas.js"></script>
+    <script type="module" src="scripts/canvas-grid.js"></script>
+
+</body>
+</html>

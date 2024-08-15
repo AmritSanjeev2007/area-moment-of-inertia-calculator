@@ -1,0 +1,63 @@
+div#content-tools-panel > section {
+    display: block;
+    margin-bottom: 30px;
+}
+
+div#content-tools-panel > section > h1 {
+    display: block;
+    text-align: left;
+
+    font-family: var(--def-font-family);
+    font-size: 20px;
+    font-weight: 400;
+
+    margin-top: 5px; margin-bottom: 5px;
+    user-select: none;
+}
+div#content-tools-panel > section > div.tool-list {
+    display: inline-block;
+    user-select: none;
+    margin-top: 10px;
+}
+
+
+div#content-tools-panel > section > div.tool-list > div.tool {
+    display: inline-block;
+    width: 60px; height: auto;
+
+    padding-top: 12px;
+    padding-bottom: 8px;
+
+    padding-left: 4px; padding-right: 4px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+    user-select: none;
+}
+div#content-tools-panel > section > div.tool-list > div.tool:hover {
+    background-color: #e0e0e0;
+}
+
+div#content-tools-panel > section > div.tool-list > div.tool > img {
+    display: inline-block;
+    width: 30px; height: 30px;
+
+    margin-left: 15px; margin-right: 15px;
+}
+div#content-tools-panel > section > div.tool-list > div.tool > p {
+    display: block;
+
+    font-family: var(--def-font-family);
+    font-size: 11px;
+    font-weight: 400;
+
+    text-align: center;
+    overflow-wrap: break-word;
+    hyphens:auto;
+
+    margin: 0px;
+    margin-top: 2px;
+
+    color: #777;
+}

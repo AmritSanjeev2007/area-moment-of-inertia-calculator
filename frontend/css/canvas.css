@@ -1,0 +1,15 @@
+svg#canvas {
+    display: block;
+
+    width: calc(100% - 40px);
+    height: calc(100vh - var(--title-bar-height) - var(--footer-bar-height) - 40px);
+
+    margin: 20px;
+
+    border: none;
+    border-radius: 4px;
+
+    box-shadow: 0px 0px 4px 5px lightgray;
+
+    background-color: transparent;
+}

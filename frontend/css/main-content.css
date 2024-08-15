@@ -1,0 +1,135 @@
+main {
+    display: grid;
+    grid-template-columns: auto 1fr;
+
+    height: calc(100vh - var(--title-bar-height) - 10px - var(--footer-bar-height));
+    width: calc(100vw);
+
+    padding-bottom: 10px;
+
+    background: transparent;
+
+    background: linear-gradient(white, white) no-repeat;
+    background-position-y: 10px;
+}
+
+
+main > div#tools {
+    display: flex;
+    height: calc(100vh - var(--title-bar-height) - 10px - var(--footer-bar-height));
+}
+
+main > div#tools > div#tool-btn-list {
+    display: grid;
+    grid-template-rows: repeat(3, min-content) 0.7fr;
+    
+    height: 100%;
+
+    box-shadow: 1px 5px 4px 5px lightgray;
+
+    padding-top: 10px;
+    overflow: hidden;
+}
+
+main > div#tools > div#tool-btn-list > div.tool-btn {
+    display: inline-block;
+    padding-top: 10px; padding-bottom: 10px;
+
+    width: 70px;
+    height: fit-content;
+
+    cursor: pointer;
+
+    user-select: none;
+}
+
+main > div#tools > div#tool-btn-list > div.tool-btn > img {
+    display: block;
+    width: 30px; height: 30px;
+
+    margin: auto;
+}
+main > div#tools > div#tool-btn-list > div.tool-btn > p {
+    display: block;
+
+    margin-top: 3px; margin-bottom: 3px;
+    font-size: 10px;
+
+    text-align: center;
+}
+
+main > div#tools > div#tool-btn-list > div.tool-btn:hover {
+    backdrop-filter: brightness(0.9);
+}
+
+main > div#tools > div#tool-btn-list > div.tool-btn[aria-selected=true] {
+    background-color: rgba(97, 160, 255, 0.2);
+}
+
+main > div#tools > div[id$="panel"][aria-expanded=true] {
+    display: inline-block;
+
+    width: 250px;
+    height: 100%;
+    max-height: 86vh;
+
+    margin-left: 20px;
+    margin-right: 5px;
+
+    padding-top: 10px;
+    padding-bottom: var(--footer-bar-height);
+
+    background-color: transparent;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+main > div#tools > div[id$="panel"][aria-expanded=true]::-webkit-scrollbar {
+    width: 5px;
+}
+main > div#tools > div[id$="panel"][aria-expanded=true]::-webkit-scrollbar-track {
+    margin-top: 5px;
+    margin-bottom: 5px;;
+    background: none;
+}
+main > div#tools > div[id$="panel"][aria-expanded=true]::-webkit-scrollbar-thumb {
+    background: #e0e0e0;
+    border-radius: 20px;
+}
+main > div#tools > div[id$="panel"][aria-expanded=true]::-webkit-scrollbar-thumb:hover {
+    background: #eeeeee;
+}
+
+main > div#tools > div[id$="panel"][aria-expanded=false] {
+    display: none;
+}
+
+
+div#panel-resizer {
+    display: inline-block;
+    width: 10px;
+
+    height: calc(100% + 10px);
+
+    box-shadow: 4px 1px 4px 1px lightgray;
+    padding-right: 5px;
+
+    cursor:ew-resize;
+    user-select: none;
+}
+
+div#panel-resizer > div.placeholder {
+    display: inline-block;
+    width: 6px;
+    height: 50px;
+
+    background-color: #d0d0d0;
+
+    margin-top: calc(50vh - 25px - var(--title-bar-height));
+    margin-left: 2px;
+
+    border: none;
+    
+    border-radius: 4px;
+    user-select: none;
+}
